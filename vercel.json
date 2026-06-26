@@ -1,12 +1,9 @@
 {
+  "version": 2,
   "builds": [
     {
       "src": "app.py",
-      "use": "@vercel/python",
-      "config": {
-        "maxLambdaSize": "15mb",
-        "runtime": "python3.9"
-      }
+      "use": "@vercel/python"
     }
   ],
   "routes": [
@@ -14,5 +11,11 @@
       "src": "/(.*)",
       "dest": "app.py"
     }
-  ]
+  ],
+  "env": {
+    "STREAMLIT_SERVER_PORT": "8501",
+    "STREAMLIT_SERVER_HEADLESS": "true",
+    "STREAMLIT_SERVER_ENABLE_CORS": "false",
+    "STREAMLIT_SERVER_ENABLE_XSRF_PROTECTION": "false"
+  }
 }
